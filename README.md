@@ -23,22 +23,22 @@ Note: scripts can be found in `package.json`
 
 ## Setting up the APIs
 
-###1. GeoNames
+### 1. GeoNames
 The GeoNames geographical database covers all countries and contains over eleven million placenames.
-####Step 1: Signup for API key
+#### Step 1: Signup for API key
 You need to go [here](). Signing up and you will get the API key.
 
-####Step 2: Fetch data
+#### Step 2: Fetch data
 In order to retrieve the data from the API, you need to use the following code
 TODO - http://www.geonames.org/export/ajax-postalcode-autocomplete.html
 
-###2. Weatherbit.io
+### 2. Weatherbit.io
 Weather API you can retrieve current weather observations from over 47,000 live weather stations, historical weather data for the past 10 years from our archive of more than 120,000 stations, and highly localized weather forecasts for any point on the globe using the world's most trusted weather models.
 
-###3. Pixabay
+### 3. Pixabay
 RESTful interface for searching and retrieving free images and videos released under the Pixabay License.
 
-###4. Environment Variables
+### 4. Environment Variables
 Environment variables are pretty much like normal variables in that they have a name and hold a value, but these variables only belong to your system and won't be visible when you push to a different environment like Github.
 - [ ] Use npm or yarn to install the dotenv package ```npm install dotenv```. This will allow us to use environment variables we set in a new file
 - [ ] Create a new ```.env``` file in the root of your project
