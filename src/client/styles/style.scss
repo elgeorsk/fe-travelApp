@@ -1,9 +1,9 @@
 /* Google fonts */
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&family=Montserrat&display=swap');
 
 * {
+	font-family: 'Pattaya', sans-serif;
 	box-sizing: border-box;
-	font-family: 'Open Sans', sans-serif;
 	&::before {
 		box-sizing: border-box;
 	}
@@ -18,39 +18,59 @@ html {
 }
 
 body {
+	background-image: url("../img/bg.png");
+
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
 	margin: auto;
-	max-width: 60em;
+	max-width: 50em;
 	height: 100vh;
 	display: grid;
 	padding: 5px;
-	grid-template-rows: 0fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
 	grid-template-areas: "header" "main" "footer";
 }
 
+.myplans {
+	background-color: white;
+	margin: 5px;
+	/* border-radius */
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	border-radius: 25px;
+	/* box-shadow */
+	-webkit-box-shadow: 10px -10px 10px -10px #017a9b;
+	-moz-box-shadow: 10px -10px 10px -10px #017a9b;
+	box-shadow: 10px -10px 10px -10px #017a9b;
+}
+
 a {
-	font-size: 1.5em;
 	color: #017a9b;
 	&:link {
-		font-size: 1.5em;
 		color: #017a9b;
 	}
 	&:active {
-		font-size: 1.5em;
 		color: #017a9b;
 	}
 	&:visited {
-		font-size: 1.5em;
 		color: #017a9b;
 	}
 	&:hover {
-		color: #eb6e4b;
+		color: #f25451;
 		text-decoration: none;
 	}
 }
 
+p {
+	font-size: 15px;
+}
+
 button {
 	&:hover {
-		color: #eb6e4b;
+		color: #f25451;
 		text-decoration: none;
 	}
 	background-color: Transparent;
@@ -63,12 +83,6 @@ button {
 	outline: none;
 }
 
-p {
-	padding: 10px;
-	font-size: 15px;
-	color: black;
-}
-
 header {
 	grid-area: header;
 	display: inline-flex;
@@ -77,20 +91,24 @@ header {
 	margin: auto;
 
 	div {
-		grid-area: logo;
-		display: inline-flex;
-		float: left;
-		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	p {
-		display: table-cell;
-		vertical-align: middle;
+		margin-bottom: 10px;
+		margin-left: 5px;
+		font-size: 20px;
+		color: black;
+	}
+	a {
+		text-decoration: none;
 	}
 }
 
 .logo {
-	width: 3em;
-	height: 3em;
+	width: 5.7em;
+	height: 5em;
 }
 
 main {
@@ -102,10 +120,18 @@ main {
 	overflow-y: auto;
 }
 
+main p {
+	font-family: 'Montserrat', sans-serif;
+	margin: 5px;
+	padding: 10px;
+	font-size: 15px;
+	color: black;
+}
+
 footer {
 	grid-area: footer;
 	text-align: center;
-	box-shadow: 0px -10px 10px -10px #017a9b;
+//	box-shadow: 0px -10px 10px -10px #017a9b;
 }
 
 /* Custom scroll bar */
@@ -125,7 +151,7 @@ footer {
 	    background: #017a9b;
 	    /* Handle on hover */
 	    &:hover {
-		background: #eb6e4b;
+		background: #f25451;
 	    }
     }
 }

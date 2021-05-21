@@ -31,12 +31,14 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif)$/i,
-                loader: 'file-loader',
-                options: {
-                    publicPath: 'assets/img',
-                    outputPath: 'assets/img',
-                    esModule: false
-                }
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        publicPath: '../img',
+                        outputPath: 'assets/img',
+                        useRelativePaths: true
+                    }
+                }]
             }
         ]
     },
@@ -47,7 +49,7 @@ module.exports = {
             filename: './index.html'
         }),
         new MiniCssExtractPlugin({ filename: 'assets/css/[name].css' }),
-        new WorkboxPlugin.GenerateSW()
+        //new WorkboxPlugin.GenerateSW()
     ],
     optimization: {
       minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
