@@ -1,5 +1,9 @@
 @import "style.scss";
 @media only screen and (max-width: 700px) {
+	body {
+		background-image: url("../img/bg-mobile.png") !important;
+	}
+
 	a {
 		text-decoration: none;
 	}

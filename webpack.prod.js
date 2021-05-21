@@ -21,22 +21,29 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.html$/,
+                use: ['html-loader']
+            },
+            {
                 test: '/\.js$/',
                 exclude: /node_modules/,
                 loader: 'babel-loader'
             },
             {
                 test: /\.scss$/,
-                use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ]
+                use: [ { loader: MiniCssExtractPlugin.loader,
+                    options: {
+                        publicPath: '../../'
+                    }
+
+                }, 'css-loader', 'sass-loader' ]
             },
             {
                 test: /\.(png|jpe?g|gif)$/i,
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        publicPath: '../img',
-                        outputPath: 'assets/img',
-                        useRelativePaths: true
+                        outputPath: 'assets/img'
                     }
                 }]
             }
