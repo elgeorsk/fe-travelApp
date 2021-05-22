@@ -1,7 +1,6 @@
 import './js/app';
 
 import './styles/media.scss';
-import './styles/style.scss';
 
 import travelLogo from './img/logo.png';
 

@@ -1,10 +1,37 @@
-@import "style.scss";
-@media only screen and (max-width: 700px) {
+@import 'style.scss';
+@media only screen and (max-width: 568px) {
 	body {
-		background-image: url("../img/bg-mobile.png") !important;
+		background-image: url('../img/bg-mobile.png') !important;
+	}
+
+	header {
+		margin: auto;
+
+		p {
+			font-size: 1.2em !important;
+		}
+	}
+
+	.logo {
+		width: 3.6em !important;
+		height: 3em !important;
 	}
 
 	a {
 		text-decoration: none;
+	}
+
+	.planner {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+	}
+
+	input[type=submit] {
+		font-size: 1em !important;
+		padding: 5px !important;
+	}
+
+	.left, .right {
+		width: 100% !important;
 	}
 }
