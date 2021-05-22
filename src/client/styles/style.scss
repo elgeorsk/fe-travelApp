@@ -1,5 +1,6 @@
 @import 'messages.scss';
 @import 'form.scss';
+@import 'myplans.scss';
 
 /* Google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Pattaya&family=Montserrat&display=swap');
@@ -120,22 +121,23 @@ footer {
 
 /* Custom scroll bar */
 /* width */
-@mixin scrollbars(){
-    &::-webkit-scrollbar {
-	    width: 10px;
-    }
+/* Custom scroll bar */
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
 
-    /* Track */
-    &::-webkit-scrollbar-track {
-	    background: #f1f1f1;
-    }
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
 
-    /* Handle */
-    &::-webkit-scrollbar-thumb {
-	    background: #017a9b;
-	    /* Handle on hover */
-	    &:hover {
-		background: #f25451;
-	    }
-    }
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #017a9b;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #f25451;
 }
