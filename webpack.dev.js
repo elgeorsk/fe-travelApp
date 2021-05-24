@@ -11,7 +11,11 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 const mockAPIResponse = require('./src/server/mockAPI.js');
 
 module.exports = {
-    entry: './src/client/index.js',
+    entry: {
+        index: './src/client/js/index.js',
+        addPlan: './src/client/js/addPlan.js',
+        myPlans: './src/client/js/myPlans.js'
+    },
     mode: 'development',
     devtool: 'source-map',
     stats: 'verbose',
@@ -44,7 +48,21 @@ module.exports = {
         new FaviconsWebpackPlugin('./src/client/img/favicon-32x32.png'),
         new HtmlWebPackPlugin({
             template: './src/client/views/index.html',
-            filename: './index.html',
+            inject: true,
+            chunks: ['index'],
+            filename: './index.html'
+        }),
+        new HtmlWebPackPlugin({
+            template: './src/client/views/addPlan.html',
+            inject: true,
+            chunks: ['addPlan'],
+            filename: './addPlan.html'
+        }),
+        new HtmlWebPackPlugin({
+            template: './src/client/views/myPlans.html',
+            inject: true,
+            chunks: ['myPlans'],
+            filename: './myPlans.html'
         }),
         new CleanWebpackPlugin({
             // Simulate the removal of files

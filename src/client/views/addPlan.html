@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:https="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <!-- mobile first -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://kit.fontawesome.com/ab29a89efe.js" crossorigin="anonymous"></script>
+        <title>Travel Planner</title>
+    </head>
+    <body>
+        <header>
+            <a href="index.html" id="homepage">
+                <div>
+                    <img id="travelLogo" class="logo"/>
+                    <p>Travel Planner</p>
+                </div>
+            </a>
+        </header>
+        <main>
+            <section class="messages"></section>
+            <section>
+                <div class="right">
+                    <a href="index.html"><i class="fas fa-plane"></i> Add new trip</a>
+                </div>
+            </section>
+            <section class="planner">
+                <form>
+                    <label for="city">Your next destination</label>
+                    <input id="city" list="cities" name="myCity" placeholder="Select a city"/>
+                    <datalist id="cities">
+                        <option value="Australia">
+                        <option value="Canada">
+                        <option value="USA">
+                    </datalist>
+                    <div class="group">
+                        <div class="left">
+                            <label for="checkin">Check-in</label>
+                            <input type="date" id="checkin" name="checkin"/>
+                        </div>
+                        <div class="right">
+                            <label for="checkout">Check-out</label>
+                            <input type="date" id="checkout" name="checkout"/>
+                        </div>
+                    </div>
+                    <input type="submit" value="Submit"/>
+                </form>
+            </section>
+        </main>
+        <footer>
+            <p>Udacity 2021 - <a href="README.md" target="_blank">About</a><br/>
+                <a href=https://pngtree.com/free-backgrounds target="_blank">free background photos from pngtree.com</a></p>
+        </footer>
+    </body>
+</html>

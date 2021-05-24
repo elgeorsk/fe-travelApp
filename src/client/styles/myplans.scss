@@ -1,3 +1,16 @@
+.myplans {
+  background-color: #f2f2f2;
+  margin: 5px;
+  /* border-radius */
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  /* box-shadow */
+  -webkit-box-shadow: 10px 10px 10px -10px #017a9b;
+  -moz-box-shadow: 10px 10px 10px -10px #017a9b;
+  box-shadow: 10px 10px 10px -10px #017a9b;
+}
+
 .rows {
   display: grid;
   color: #d6d6d6;

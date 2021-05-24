@@ -10,7 +10,7 @@
     </head>
     <body>
         <header>
-            <a href="#" id="homepage">
+            <a href="index.html" id="homepage">
                 <div>
                     <img id="travelLogo" class="logo"/>
                     <p>Travel Planner</p>
@@ -18,113 +18,18 @@
             </a>
         </header>
         <main>
-            <section class="messages">
-                <div id="error-msg" class="alert alert-danger">
-                    <span><i class="fas fa-times"></i></span> Error message
-                    <button type="button" onclick="toggleDisplay()" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div id="success-msg" class="alert alert-success">
-                    <span><i class="fas fa-info-circle"></i></span> Success message
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </section>
+            <section class="messages"></section>
             <section class="planner">
                 <form>
-                    <div class="group">
-                        <div class="left">
-                            <label for="country">Country</label>
-                            <input id="country" list="countries" name="myCountry" placeholder="Select a country"/>
-                            <datalist id="countries">
-                                <option value="Australia">
-                                <option value="Canada">
-                                <option value="USA">
-                            </datalist>
-                        </div>
-                        <div class="right">
-                            <label for="city">City</label>
-                            <input id="city" list="cities" name="myCity" placeholder="Select a city"/>
-                            <datalist id="cities">
-                                <option value="Australia">
-                                <option value="Canada">
-                                <option value="USA">
-                            </datalist>
-                        </div>
-                    </div>
-
-                    <div class="group">
-                        <div class="left">
-                            <label for="checkin">Check-in</label>
-                            <input type="date" id="checkin" name="checkin"/>
-                        </div>
-                        <div class="right">
-                            <label for="checkout">Check-out</label>
-                            <input type="date" id="checkout" name="checkout"/>
-                        </div>
-                    </div>
-                    <input type="submit" value="Submit"/>
+                    <h2>Let's choose the next adventure</h2>
+                    <input id="adventure" type="text" placeholder="Type your next adventure"/>
                 </form>
-            </section>
-            <section class="myplans">
-                <h3>My travel plans:</h3>
-                <div class="rows">
-                    <div class="row">
-                        <div class="planBox">
-                            <div class="group">
-                                <div class="left">
-                                    <h1>Skiathos</h1>
-                                </div>
-                                <div class="right">
-                                    <p style="float: right">15 days</p>
-                                    <p>From - To</p>
-                                </div>
-                            </div>
-
-                            <div class="group">
-                                <div class="left">
-                                    <h1><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>Sunny <br/> 16<span class="degree">°c</span></h1>
-                                    <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-droplet"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>Humidity : 26%</p>
-                                    <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-wind"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path></svg>Wind : 26 km/h</p>
-                                </div>
-                                <div class="right">
-                                </div>
-                            </div>
-                            <input type="submit" value="Remove"/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="planBox">
-                            <div class="group">
-                                <div class="left">
-                                    <h1>Skiathos</h1>
-                                </div>
-                                <div class="right">
-                                    <p style="float: right">15 days</p>
-                                    <p>From - To</p>
-                                </div>
-                            </div>
-
-                            <div class="group">
-                                <div class="left">
-                                    <h1><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>Sunny <br/> 16<span class="degree">°c</span></h1>
-                                    <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-droplet"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>Humidity : 26%</p>
-                                    <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-wind"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path></svg>Wind : 26 km/h</p>
-                                </div>
-                                <div class="right">
-                                </div>
-                            </div>
-                            <input type="submit" value="Remove"/>
-                        </div>
-                    </div>
-                </div>
+                <input type="submit" id="submit" value="Let's start"/>
             </section>
         </main>
         <footer>
-            <p>Udacity 2021 <br/>
-            <a href=https://pngtree.com/free-backgrounds>free background photos from pngtree.com</a></p>
+            <p>Udacity 2021 - <a href="README.md" target="_blank">About</a><br/>
+            <a href=https://pngtree.com/free-backgrounds target="_blank">free background photos from pngtree.com</a></p>
         </footer>
     </body>
 </html>

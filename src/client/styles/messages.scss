@@ -26,10 +26,8 @@
   color: #000;
   text-shadow: 0 1px 0 #fff;
   opacity: 0.5;
-}
-
-#error-msg, #success-msg {
-  display: none;
+  border: none;
+  background: none;
 }
 
 .close:not(:disabled):not(.disabled) {
