@@ -122,17 +122,17 @@ footer {
 /* width */
 /* Custom scroll bar */
 /* width */
-::-webkit-scrollbar {
+::-webkit-scrollbar, datalist::-webkit-scrollbar {
 	width: 10px;
 }
 
 /* Track */
-::-webkit-scrollbar-track {
+::-webkit-scrollbar-track, datalist::-webkit-scrollbar-track {
 	background: #f1f1f1;
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb, datalist::-webkit-scrollbar-thumb {
 	background: #017a9b;
 }
 
@@ -160,6 +160,7 @@ footer {
 
 	/* Safari */
 	animation: spin 2s linear infinite;
+	display: none;
 }
 
 /* Safari */
@@ -180,6 +181,45 @@ footer {
 
 	100% {
 		transform: rotate(360deg);
+	}
+}
+
+// tooltip
+.tooltip {
+	position: relative;
+	display: inline-block;
+
+	.tooltiptext {
+		visibility: hidden;
+		width: 120px;
+		background-color: #555;
+		color: #fff;
+		text-align: center;
+		border-radius: 6px;
+		padding: 5px;
+		position: absolute;
+		z-index: 1;
+		bottom: 125%;
+		left: 50%;
+		margin-left: -60px;
+		opacity: 0;
+		transition: opacity 0.3s;
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			margin-left: -5px;
+			border-width: 5px;
+			border-style: solid;
+			border-color: #555 transparent transparent transparent;
+		}
+	}
+
+	&:hover .tooltiptext {
+		visibility: visible;
+		opacity: 1;
 	}
 }
 

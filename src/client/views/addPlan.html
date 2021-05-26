@@ -17,6 +17,7 @@
                 </div>
             </a>
         </header>
+        <section class="loader"></section>
         <main>
             <section class="messages"></section>
             <section>
@@ -25,14 +26,12 @@
                 </div>
             </section>
             <section class="planner">
-                <form>
-                    <label for="city">Your next destination</label>
+                <form autocomplete="off">
+                    <label for="city">Your next destination&nbsp;<div class="tooltip"><span><i class="fas fa-info-circle"></i></span>
+                        <span class="tooltiptext">Remove the value for more options</span>
+                    </div></label>
                     <input id="city" list="cities" name="myCity" placeholder="Select a city"/>
-                    <datalist id="cities">
-                        <option value="Australia">
-                        <option value="Canada">
-                        <option value="USA">
-                    </datalist>
+                    <datalist id="cities"></datalist>
                     <div class="group">
                         <div class="left">
                             <label for="checkin">Check-in</label>
@@ -43,8 +42,8 @@
                             <input type="date" id="checkout" name="checkout"/>
                         </div>
                     </div>
-                    <input type="submit" value="Submit"/>
                 </form>
+                <input type="submit" id="submit" value="Submit"/>
             </section>
         </main>
         <footer>

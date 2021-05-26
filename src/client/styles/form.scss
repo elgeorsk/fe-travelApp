@@ -14,12 +14,17 @@
   box-shadow: 10px 10px 10px -10px #017a9b;
 }
 
-input, select, option {
-  font-family: 'Montserrat', sans-serif;
+option {
   font-size: 15px;
 }
 
-input[type='text'], select, input[list], input[type='date' i]{
+datalist{
+  width: inherit;
+}
+
+input, select, input[list], input[type='date' i]{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
