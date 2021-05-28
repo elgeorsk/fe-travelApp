@@ -41,7 +41,6 @@ app.get('/', function (req, res) {
 const fetch = require('node-fetch');
 let geonamesBaseURL = 'http://api.geonames.org/searchJSON?';
 let geonamesKey = '&username=' + process.env.GEONAMES_USERNAME;
-
 let geonamesParam = '&style=medium&featureClass=P';
 
 app.get('/getGeonamesData', async function (req, res) {

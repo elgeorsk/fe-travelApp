@@ -91,7 +91,15 @@ section {
 	a {
 		text-decoration: none;
 		float: right;
+
+		&:hover {
+			text-decoration: underline;
+		}
 	}
+}
+
+.menu {
+	height: 1.5em;
 }
 
 .logo {
@@ -112,6 +120,15 @@ main h3 {
 	padding: 10px;
 }
 
+.left {
+	float: left;
+	width: 75%;
+}
+
+.right {
+	float: right;
+}
+
 footer {
 	grid-area: footer;
 	text-align: center;
@@ -122,17 +139,17 @@ footer {
 /* width */
 /* Custom scroll bar */
 /* width */
-::-webkit-scrollbar, datalist::-webkit-scrollbar {
+::-webkit-scrollbar {
 	width: 10px;
 }
 
 /* Track */
-::-webkit-scrollbar-track, datalist::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
 	background: #f1f1f1;
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb, datalist::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
 	background: #017a9b;
 }
 

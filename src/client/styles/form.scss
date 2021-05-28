@@ -56,14 +56,14 @@ input[type=submit] {
   margin: 5px;
 }
 
-.left, .right {
+form .left, form .right {
   width: 48%;
 }
 
-.left {
+form .left {
   float: left;
 }
 
-.right {
+form .right {
   float: right;
 }

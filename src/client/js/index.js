@@ -1,11 +1,9 @@
-import { checkInput, displayError, displaySpinner, displaySuccess, removeSpinner, toggleDisplay, getGeonamesData } from './app';
+import { checkInput, displayError, displaySpinner, displaySuccess, removeSpinner, toggleDisplay } from './app';
 import '../styles/media.scss';
 import travelLogo from '../img/logo.png';
 
 let myLogo = document.getElementById('travelLogo'); // get logo element from the page
 myLogo.src = travelLogo; // set logo image
-
-localStorage.clear();
 
 // get input element
 let nextAdventureInput = document.getElementById('adventure');
@@ -44,22 +42,5 @@ submitBtn.addEventListener('click', function (e){
             });
     }
 });
-
-async function postData (url = '', data = {}){
-    const response = await fetch(url, {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-    });
-    try {
-        const newData = await response.json();
-        return newData
-    } catch (error) {
-        console.log("error", error);
-    }
-};
 
 export { toggleDisplay }

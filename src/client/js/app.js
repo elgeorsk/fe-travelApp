@@ -18,7 +18,7 @@ function checkDates(checkin, checkout){
     let message = 'success';
 
     if (checkin === (null || undefined || '') || checkout === (null || undefined || '')){
-        message = 'Date input should have value';
+        message = 'Date inputs should have value';
     } else {
 
     }
@@ -30,14 +30,14 @@ let divMessages = document.getElementsByClassName('messages');
 function displayError(txt) {
     divMessages[0].innerHTML = '<div id="error-msg" class="alert alert-danger">'+
             '<span><i class="fas fa-times"></i></span> ' + txt +
-            '<button type="button" onclick="return Client.toggleDisplay(event)" class="close" data-dismiss="alert" aria-label="Close">' +
+            '<button type="button" onclick="return Client.toggleDisplay(1)" class="close" data-dismiss="alert" aria-label="Close">' +
             '<span aria-hidden="true">&times;</span></button></div>';
 }
 
 function displaySuccess(txt) {
     divMessages[0].innerHTML = '<div id="success-msg" class="alert alert-success">' +
         '<span><i class="fas fa-info-circle"></i></span> ' + txt +
-        '<button type="button" onclick="return Client.toggleDisplay(event)" class="close" data-dismiss="alert" aria-label="Close">' +
+        '<button type="button" onclick="return Client.toggleDisplay(0)" class="close" data-dismiss="alert" aria-label="Close">' +
         '<span aria-hidden="true">&times;</span></button></div>';
 }
 
@@ -53,8 +53,13 @@ function removeSpinner(){
     document.querySelector('footer').style.display = 'block';
 }
 
-function toggleDisplay(){
-    let target = document.getElementById('error-msg');
+function toggleDisplay(txt){
+    let target;
+    if(txt === 1) {
+        target = document.getElementById("error-msg");
+    } else {
+        target = document.getElementById("success-msg");
+    }
     if (target.style.display === 'none') {
         target.style.display = 'block';
     } else {
@@ -62,17 +67,22 @@ function toggleDisplay(){
     }
 }
 
-const getGeonamesData = async (geonamesBaseURL, geonamesParam, geonamesKey, data) => {
-    const res = await fetch(geonamesBaseURL +
-        'name_startsWith='+ data +'&name_equals='+ data + geonamesParam + geonamesKey);
-
+async function postData (url = '', data = {}){
+    const response = await fetch(url, {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    });
     try {
-        const json = await res.json();
-        return json;
+        const newData = await response.json();
+        return newData
     } catch (error) {
-
-        console.log('error', error);
+        console.log("error", error);
     }
-}
+};
 
-export { checkInput, checkDates, displayError, displaySuccess, displaySpinner, removeSpinner, toggleDisplay, getGeonamesData }
+
+export { checkInput, checkDates, displayError, displaySuccess, displaySpinner, removeSpinner, toggleDisplay }

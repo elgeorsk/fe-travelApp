@@ -6,6 +6,7 @@ let myLogo = document.getElementById('travelLogo'); // get logo element from the
 myLogo.src = travelLogo; // set logo image
 
 let data = JSON.parse(localStorage.getItem('geonamesObj'));
+let myPlansJSON = [];
 let cityInput = document.getElementById('city');
 let checkinInput = document.getElementById('checkin');
 let checkoutInput = document.getElementById('checkout');
@@ -15,10 +16,10 @@ let str = '';
 for (let i=0; i< data.geonames.length; i++){
     if (i === 0){
         cityInput.value = data.geonames[i].toponymName + ', ' + data.geonames[i].countryName + ', ' +  data.geonames[i].adminName1;
-        str += '<option value="' + data.geonames[i].toponymName + ', ' + data.geonames[i].countryName + ', ' +  data.geonames[i].adminName1 + '" />';
-    } else {
-        str += '<option value="' + data.geonames[i].toponymName + ', ' + data.geonames[i].countryName + ', ' +  data.geonames[i].adminName1 + '" />';
+
     }
+    str += '<option value="' + data.geonames[i].toponymName + ', ' + data.geonames[i].countryName + ', ' +  data.geonames[i].adminName1 + '" ' +
+        'data-value="&lat=' + data.geonames[i].lat + '&lon=' + data.geonames[i].lng +'"/>';
 }
 
 datalistCities.innerHTML = str;
@@ -44,6 +45,9 @@ submitBtn.addEventListener('click', function (e) {
             displayError('Check-in date cannot be after check-out date!');
         } else {
             displaySpinner();
+            //TODO add to localStorage
+            //myPlansJSON.push('{lala}');
+            localStorage.setItem('myPlans', JSON.stringify(myPlansJSON));
             window.location.href = 'myPlans.html';
         }
     }
