@@ -1,25 +1,23 @@
-import {
-    checkInput,
-    checkDates,
-    displayError,
-    displaySpinner,
-    removeSpinner,
-    toggleDisplay,
-    displaySuccess
-} from './app';
+import { checkInput, checkDates, displayError, displaySpinner, removeSpinner, toggleDisplay, displaySuccess } from './app';
 import '../styles/media.scss';
 import travelLogo from '../img/logo.png';
+import defaultImg from '../img/default.jpg';
 
 let myLogo = document.getElementById('travelLogo'); // get logo element from the page
 myLogo.src = travelLogo; // set logo image
 
 let data = JSON.parse(localStorage.getItem('geonamesObj'));
-let myPlansJSON = JSON.parse(localStorage.getItem('myPlans'));
-console.log(myPlansJSON);
+// let variable = (condition) ? (true block) : ((condition2) ? (true block2) : (else block2)) -- if else one line
+let myPlansJSON = JSON.parse(localStorage.getItem('myPlans')) === null ? [] : JSON.parse(localStorage.getItem('myPlans'));
+console.log('myPlansJSON', myPlansJSON);
+// get html page elements
 let cityInput = document.getElementById('city');
 let checkinInput = document.getElementById('checkin');
 let checkoutInput = document.getElementById('checkout');
 let datalistCities = document.getElementById('cities');
+
+// get the data-value of the option
+let dataValue = '';
 
 let str = '';
 for (let i=0; i< data.geonames.length; i++){
@@ -28,7 +26,7 @@ for (let i=0; i< data.geonames.length; i++){
 
     }
     str += '<option value="' + data.geonames[i].toponymName + ', ' + data.geonames[i].countryName + ', ' +  data.geonames[i].adminName1 + '" ' +
-        'data-value="&lat=' + data.geonames[i].lat + '&lon=' + data.geonames[i].lng +'"/>';
+        'data-value="lat=' + data.geonames[i].lat + '&lon=' + data.geonames[i].lng +'"/>';
 }
 
 datalistCities.innerHTML = str;
@@ -55,21 +53,24 @@ submitBtn.addEventListener('click', function (e) {
                 displayError('Check-in date cannot be after check-out date!');
             } else {
                 displaySpinner();
-                fetch('/getPixaBayData?input=' + cityInput.value)
+                let inputSplit = cityInput.value.split(', ');
+                fetch('/getPixaBayData?input=' + inputSplit[0] + '+' + inputSplit[1])
                     .then(response => response.json())
                     .then(data => {
-                        console.log(data.hasOwnProperty('totalHits'));
-                        console.log(data);
                         if(!data.hasOwnProperty('totalHits')){
                             removeSpinner();
                             displayError(data.status.message);
                         } else if (data.totalHits === 0){
                             removeSpinner();
                             // TODO default image
+                            let obj = { city: cityInput.value, map: dataValue, img: defaultImg };
+                            myPlansJSON.push(obj);
+                            localStorage.setItem('myPlans', JSON.stringify(myPlansJSON));
+                            window.location.href = 'myPlans.html';
                         } else {
-                            console.log(data.hits[0].largeImageURL);
-                            // myPlansJSON.push(data.hits[0].largeImageURL);
-                            // localStorage.setItem('myPlans', JSON.stringify(myPlansJSON));
+                            let obj = { city: cityInput.value, map: dataValue, img: data.hits[0].largeImageURL };
+                            myPlansJSON.push(obj);
+                            localStorage.setItem('myPlans', JSON.stringify(myPlansJSON));
                             window.location.href = 'myPlans.html';
                         };
                     });
@@ -83,9 +84,10 @@ submitBtn.addEventListener('click', function (e) {
 function findInputValue(){
     let result = false;
     let options = datalistCities.options;
-    for(let i=0; i< options.length; i++){
+    for (let i=0; i< options.length; i++) {
         if(cityInput.value === options[i].value){
-            result= true
+            dataValue = options[i].getAttribute('data-value');
+            result = true;
         }
     }
     return result;

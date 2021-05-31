@@ -5,12 +5,13 @@ import travelLogo from '../img/logo.png';
 let myLogo = document.getElementById('travelLogo'); // get logo element from the page
 myLogo.src = travelLogo; // set logo image
 
-// TODO getData from weatherbit
-// https://api.weatherbit.io/v2.0/current?lat=35.7796&lon=-78.6382&key=API_KEY&include=minutely
-// TODO getData from pixarbay
-//
+let myPlansJSON = JSON.parse(localStorage.getItem('myPlans')) === null ? [] : JSON.parse(localStorage.getItem('myPlans'));
 
-
+fetch('/getWeatherbitData?input=' + myPlansJSON[0].map)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    });
 
 function createPlanBox(){
     //TODO

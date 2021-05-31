@@ -65,3 +65,15 @@ app.get('/getPixaBayData', async function (req, res) {
             res.send(data)})
         .catch(error => console.log('error', error));
 });
+
+// weatherbit api
+let weatherbitBaseURL = 'https://api.weatherbit.io/v2.0/current?';
+let weatherbitKey = 'key=' + process.env.WEATHERBIT_API_KEY;
+
+app.get('/getWeatherbitData', async function (req, res) {
+    await fetch(weatherbitBaseURL + weatherbitKey + '&lat=' + req.query.lat + '&lon=' + req.query.lon)
+        .then(response => response.json())
+        .then(data => {
+            res.send(data)})
+        .catch(error => console.log('error', error));
+});
