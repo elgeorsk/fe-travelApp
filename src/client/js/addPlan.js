@@ -26,7 +26,7 @@ for (let i=0; i< data.geonames.length; i++){
 
     }
     str += '<option value="' + data.geonames[i].toponymName + ', ' + data.geonames[i].countryName + ', ' +  data.geonames[i].adminName1 + '" ' +
-        'data-value="lat=' + data.geonames[i].lat + '&lon=' + data.geonames[i].lng +'"/>';
+        'data-value="&lat=' + data.geonames[i].lat + '&lon=' + data.geonames[i].lng +'"/>';
 }
 
 datalistCities.innerHTML = str;
@@ -45,7 +45,6 @@ submitBtn.addEventListener('click', function (e) {
         let today = new Date().toISOString().slice(0,10);
         let checkinDay = new Date(checkinInput.value).toISOString().slice(0,10);
         let checkoutDay = new Date(checkoutInput.value).toISOString().slice(0,10);
-
         if (findInputValue()) {
             if((checkinDay || checkoutDay) < today){
                 displayError('Date cannot be in the past!');
@@ -62,15 +61,10 @@ submitBtn.addEventListener('click', function (e) {
                             displayError(data.status.message);
                         } else if (data.totalHits === 0){
                             removeSpinner();
-                            // TODO default image
-                            let obj = { city: cityInput.value, map: dataValue, img: defaultImg };
-                            myPlansJSON.push(obj);
-                            localStorage.setItem('myPlans', JSON.stringify(myPlansJSON));
+                            addObj(checkinDay, checkoutDay, defaultImg);
                             window.location.href = 'myPlans.html';
                         } else {
-                            let obj = { city: cityInput.value, map: dataValue, img: data.hits[0].largeImageURL };
-                            myPlansJSON.push(obj);
-                            localStorage.setItem('myPlans', JSON.stringify(myPlansJSON));
+                            addObj(checkinDay, checkoutDay, data.hits[0].largeImageURL);
                             window.location.href = 'myPlans.html';
                         };
                     });
@@ -81,10 +75,19 @@ submitBtn.addEventListener('click', function (e) {
     }
 });
 
+function addObj(checkinDay, checkoutDay, img) {
+    // https://stackoverflow.com/questions/3224834/get-difference-between-2-dates-in-javascript
+    let diffTime = Math.abs(new Date(checkoutDay) - new Date(checkinDay));
+    let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    let obj = { city: cityInput.value, map: dataValue, from: checkinDay, to: checkoutDay, img: img, duration: diffDays};
+    myPlansJSON.push(obj);
+    localStorage.setItem('myPlans', JSON.stringify(myPlansJSON));
+}
+
 function findInputValue(){
     let result = false;
     let options = datalistCities.options;
-    for (let i=0; i< options.length; i++) {
+    for (let i=0; i<options.length; i++) {
         if(cityInput.value === options[i].value){
             dataValue = options[i].getAttribute('data-value');
             result = true;

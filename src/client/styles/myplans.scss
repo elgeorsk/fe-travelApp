@@ -1,6 +1,7 @@
 .myplans {
   background-color: #f2f2f2;
   margin: 5px;
+  padding: 10px;
   /* border-radius */
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
@@ -12,28 +13,26 @@
 }
 
 .planBox {
-  background: rgb(0,0,0);
   background-size: cover;
-  padding: 20px;
+  padding: 10px;
   margin: 10px;
   border-radius: 25px;
   border-style: groove;
-}
-
-.myplans .group {
-  display: flex;
-}
-
-.myplans .left {
-  width: 30%;
-}
-
-.myplans .right {
-  width: 70%;
 }
 
 .myplans input[type=submit] {
   &:hover {
     background-color: #f25451;
   }
+}
+
+.myplans p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  padding-left: 20px;
+  float: left;
+}
+
+.toRight {
+  text-align: right;
 }

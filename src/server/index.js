@@ -74,6 +74,6 @@ app.get('/getWeatherbitData', async function (req, res) {
     await fetch(weatherbitBaseURL + weatherbitKey + '&lat=' + req.query.lat + '&lon=' + req.query.lon)
         .then(response => response.json())
         .then(data => {
-            res.send(data)})
+            res.send(data.data)})
         .catch(error => console.log('error', error));
 });
