@@ -5,7 +5,7 @@ function checkInput(inputText){
 
     let message = 'success';
 
-    if (inputText === (null || undefined || '')) {
+    if (inputText === '' || inputText === null || inputText === undefined) {
         message = 'The input value cannot be empty!';
     } else if (htmlRegex.test(inputText)){
         message = 'Input value contains HTML tags, please use only plain text!';
