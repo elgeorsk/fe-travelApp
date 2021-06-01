@@ -60,7 +60,6 @@ submitBtn.addEventListener('click', function (e) {
                             removeSpinner();
                             displayError(data.status.message);
                         } else if (data.totalHits === 0){
-                            removeSpinner();
                             addObj(checkinDay, checkoutDay, defaultImg);
                             window.location.href = 'myPlans.html';
                         } else {

@@ -1,3 +1,5 @@
+@import 'variables.scss';
+
 .planner {
   background-color: #f2f2f2;
   margin: 5px;
@@ -9,9 +11,9 @@
   border-radius: 25px;
 
   /* box-shadow */
-  -webkit-box-shadow: 10px 10px 10px -10px #017a9b;
-  -moz-box-shadow: 10px 10px 10px -10px #017a9b;
-  box-shadow: 10px 10px 10px -10px #017a9b;
+  -webkit-box-shadow: 10px 10px 10px -10px $blue;
+  -moz-box-shadow: 10px 10px 10px -10px $blue;
+  box-shadow: 10px 10px 10px -10px $blue;
 }
 
 option {
@@ -38,7 +40,7 @@ input, select, input[list], input[type='date' i]{
 input[type=submit] {
   font-family: 'Pattaya', sans-serif;
   width: 100%;
-  background-color: #017a9b;
+  background-color: $blue;
   font-size: 1.2em;
   color: white;
   padding: 14px 20px;

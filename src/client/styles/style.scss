@@ -1,6 +1,7 @@
 @import 'messages.scss';
 @import 'form.scss';
 @import 'myplans.scss';
+@import 'variables.scss';
 
 /* Google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Pattaya&family=Montserrat&display=swap');
@@ -43,20 +44,20 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 a {
-	color: #017a9b;
+	color: $blue;
 	cursor: pointer;
 
 	&:link {
-		color: #017a9b;
+		color: $blue;
 	}
 	&:active {
-		color: #017a9b;
+		color: $blue;
 	}
 	&:visited {
-		color: #017a9b;
+		color: $blue;
 	}
 	&:hover {
-		color: #f25451;
+		color: $orange;
 		text-decoration: none;
 	}
 }
@@ -132,7 +133,6 @@ main h3 {
 footer {
 	grid-area: footer;
 	text-align: center;
-//	box-shadow: 0px -10px 10px -10px #017a9b;
 }
 
 /* Custom scroll bar */
@@ -150,12 +150,12 @@ footer {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	background: #017a9b;
+	background: $blue;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-	background: #f25451;
+	background: $orange;
 }
 
 // loader spinner

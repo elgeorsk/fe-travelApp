@@ -7,9 +7,9 @@
   -moz-border-radius: 25px;
   border-radius: 25px;
   /* box-shadow */
-  -webkit-box-shadow: 10px 10px 10px -10px #017a9b;
-  -moz-box-shadow: 10px 10px 10px -10px #017a9b;
-  box-shadow: 10px 10px 10px -10px #017a9b;
+  -webkit-box-shadow: 10px 10px 10px -10px $blue;
+  -moz-box-shadow: 10px 10px 10px -10px $blue;
+  box-shadow: 10px 10px 10px -10px $blue;
 }
 
 .planBox {
@@ -22,7 +22,7 @@
 
 .myplans input[type=submit] {
   &:hover {
-    background-color: #f25451;
+    background-color: $orange;
   }
 }
 
