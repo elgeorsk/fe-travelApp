@@ -18,6 +18,7 @@ You can run the project in `development` or `production` mode by using the follo
 
 - Development mode: `npm run build-dev`
 - Production mode: `npm run build-prod`
+- Run tests: `npm run test`
 
 Note: scripts can be found in `package.json`
 
@@ -25,18 +26,41 @@ Note: scripts can be found in `package.json`
 
 ### 1. GeoNames
 The GeoNames geographical database covers all countries and contains over eleven million placenames.
+
 #### Step 1: Signup for API key
-You need to go [here](). Signing up and you will get the API key.
+Sign up [here](https://www.geonames.org/login) and get your API key.
 
 #### Step 2: Fetch data
-In order to retrieve the data from the API, you need to use the following code
-TODO - http://www.geonames.org/export/ajax-postalcode-autocomplete.html
+[Here](http://www.geonames.org/export/geonames-search.html) is the documentation for GeoNames Search Webservice.
 
 ### 2. Weatherbit.io
-Weather API you can retrieve current weather observations from over 47,000 live weather stations, historical weather data for the past 10 years from our archive of more than 120,000 stations, and highly localized weather forecasts for any point on the globe using the world's most trusted weather models.
+[Weather API](https://www.weatherbit.io/) you can retrieve current weather observations from over 47,000 live weather stations, historical weather data for the past 10 years from our archive of more than 120,000 stations, and highly localized weather forecasts for any point on the globe using the world's most trusted weather models.
+
+#### Step 1: Signup for API key
+Sign up [here](https://www.weatherbit.io/account/create) and get your API key.
+
+#### Step 2: Fetch data
+[Here](https://www.weatherbit.io/api/weather-current) is the documentation for Current Weather API.
 
 ### 3. Pixabay
 RESTful interface for searching and retrieving free images and videos released under the Pixabay License.
+
+#### Step 1: Signup for API key
+Sign up [here](https://pixabay.com/) and get your API key.
+
+#### Step 2: Fetch data
+[Here]() is the documentation for Current Weather API.
+
+```
+let API_KEY = PIXABAY_API_KEY;
+let URL = "https://pixabay.com/api/?key="+API_KEY+"&q="+encodeURIComponent('red roses');
+$.getJSON(URL, function(data){
+        if (parseInt(data.totalHits) > 0)
+                $.each(data.hits, function(i, hit){ console.log(hit.pageURL); });
+        else
+        console.log('No hits');
+        });
+```
 
 ### 4. Environment Variables
 Environment variables are pretty much like normal variables in that they have a name and hold a value, but these variables only belong to your system and won't be visible when you push to a different environment like Github.

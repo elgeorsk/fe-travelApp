@@ -1,6 +1,6 @@
 import '../styles/media.scss';
 import travelLogo from '../img/logo.png';
-import {displaySpinner, removeSpinner} from "./app";
+import {displaySpinner, removeSpinner, serviceWorker} from "./app";
 
 let myLogo = document.getElementById('travelLogo'); // get logo element from the page
 myLogo.src = travelLogo; // set logo image
@@ -60,5 +60,7 @@ function deleteMe(id){
     localStorage.setItem('myPlans', JSON.stringify(myPlansJSON));
     window.location.reload();
 }
+
+serviceWorker();
 
 export { deleteMe }

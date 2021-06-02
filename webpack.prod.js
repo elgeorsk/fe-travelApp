@@ -74,7 +74,7 @@ module.exports = {
             filename: './myPlans.html'
         }),
         new MiniCssExtractPlugin({ filename: 'assets/css/[name].css' }),
-        //new WorkboxPlugin.GenerateSW(),
+        new WorkboxPlugin.GenerateSW(),
     ],
     optimization: {
       minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],

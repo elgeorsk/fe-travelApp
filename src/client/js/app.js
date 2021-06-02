@@ -67,5 +67,16 @@ function toggleDisplay(txt){
     }
 }
 
+function serviceWorker(){
+    //Add Service Workers - https://developers.google.com/web/tools/workbox/guides/generate-service-worker/webpack
+    // Check that service workers are supported
+    if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js');
+        });
+    }
+}
 
-export { checkInput, checkDates, displayError, displaySuccess, displaySpinner, removeSpinner, toggleDisplay }
+
+export { checkInput, checkDates, displayError, displaySuccess, displaySpinner, removeSpinner, toggleDisplay, serviceWorker }

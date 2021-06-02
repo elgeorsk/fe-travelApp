@@ -1,4 +1,4 @@
-import { checkInput, checkDates, displayError, displaySpinner, removeSpinner, toggleDisplay, displaySuccess } from './app';
+import { checkInput, checkDates, displayError, displaySpinner, removeSpinner, toggleDisplay, serviceWorker } from './app';
 import '../styles/media.scss';
 import travelLogo from '../img/logo.png';
 import defaultImg from '../img/default.jpg';
@@ -94,5 +94,7 @@ function findInputValue(){
     }
     return result;
 }
+
+serviceWorker();
 
 export { toggleDisplay }

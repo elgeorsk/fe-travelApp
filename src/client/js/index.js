@@ -1,4 +1,4 @@
-import { checkInput, displayError, displaySpinner, displaySuccess, removeSpinner, toggleDisplay } from './app';
+import { checkInput, displayError, displaySpinner, displaySuccess, removeSpinner, toggleDisplay, serviceWorker } from './app';
 import '../styles/media.scss';
 import travelLogo from '../img/logo.png';
 
@@ -42,5 +42,7 @@ submitBtn.addEventListener('click', function (e){
             });
     }
 });
+
+serviceWorker();
 
 export { toggleDisplay }
