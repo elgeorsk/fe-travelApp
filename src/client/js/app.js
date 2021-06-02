@@ -1,3 +1,4 @@
+// validate the input
 function checkInput(inputText){
 
     // source https://stackoverflow.com/questions/15458876/check-if-a-string-is-html-or-not/15458987
@@ -14,6 +15,7 @@ function checkInput(inputText){
     return message;
 }
 
+// validate the dates
 function checkDates(checkin, checkout){
     let message = 'success';
 
@@ -53,6 +55,7 @@ function removeSpinner(){
     document.querySelector('footer').style.display = 'block';
 }
 
+// hide error/info messages
 function toggleDisplay(txt){
     let target;
     if(txt === 1) {

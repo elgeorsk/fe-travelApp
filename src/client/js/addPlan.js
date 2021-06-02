@@ -9,7 +9,7 @@ myLogo.src = travelLogo; // set logo image
 let data = JSON.parse(localStorage.getItem('geonamesObj'));
 // let variable = (condition) ? (true block) : ((condition2) ? (true block2) : (else block2)) -- if else one line
 let myPlansJSON = JSON.parse(localStorage.getItem('myPlans')) === null ? [] : JSON.parse(localStorage.getItem('myPlans'));
-console.log('myPlansJSON', myPlansJSON);
+
 // get html page elements
 let cityInput = document.getElementById('city');
 let checkinInput = document.getElementById('checkin');
@@ -74,6 +74,7 @@ submitBtn.addEventListener('click', function (e) {
     }
 });
 
+// add travel plan to the json list
 function addObj(checkinDay, checkoutDay, img) {
     // https://stackoverflow.com/questions/3224834/get-difference-between-2-dates-in-javascript
     let diffTime = Math.abs(new Date(checkoutDay) - new Date(checkinDay));
@@ -83,6 +84,7 @@ function addObj(checkinDay, checkoutDay, img) {
     localStorage.setItem('myPlans', JSON.stringify(myPlansJSON));
 }
 
+// check if the input value exists in the dropdown list
 function findInputValue(){
     let result = false;
     let options = datalistCities.options;

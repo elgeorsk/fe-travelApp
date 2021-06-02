@@ -5,11 +5,10 @@ import {displaySpinner, removeSpinner, serviceWorker} from "./app";
 let myLogo = document.getElementById('travelLogo'); // get logo element from the page
 myLogo.src = travelLogo; // set logo image
 let rowsElement = document.getElementsByClassName('rows')[0];
-
-let myPlansJSON = JSON.parse(localStorage.getItem('myPlans')) === null ? [] : JSON.parse(localStorage.getItem('myPlans'));
-
 let submitBtn = document.getElementById('submit');
 
+// check if there are created travel plans
+let myPlansJSON = JSON.parse(localStorage.getItem('myPlans')) === null ? [] : JSON.parse(localStorage.getItem('myPlans'));
 if(myPlansJSON.length === 0){
     rowsElement.innerHTML = '<div class="row">\n' +
         '<p>No plans available.&nbsp;<a href="index.html">Let\'s create one!</a></p></div>';
@@ -46,6 +45,7 @@ function addPlansUI() {
     }
 }
 
+// set image to div
 function addBackgroundImage(){
     let rows = document.getElementsByClassName('row');
 
@@ -54,6 +54,7 @@ function addBackgroundImage(){
     }
 }
 
+// remove travel plan from the json list
 function deleteMe(id){
     displaySpinner();
     myPlansJSON.splice(id,1);
