@@ -1,4 +1,6 @@
 // validate the input
+import Toastify from "toastify-js";
+
 function checkInput(inputText){
 
     // source https://stackoverflow.com/questions/15458876/check-if-a-string-is-html-or-not/15458987
@@ -55,6 +57,18 @@ function removeSpinner(){
     document.querySelector('footer').style.display = 'block';
 }
 
+function toastifyMessage(txt){
+    Toastify({
+        className: 'toast-error',
+        text: txt,
+        duration: 3000,
+        offset: {
+            x: 50, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+            y: 10 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+        },
+    }).showToast();
+}
+
 // hide error/info messages
 function toggleDisplay(txt){
     let target;
@@ -81,4 +95,4 @@ function serviceWorker(){
     }
 }
 
-export { checkInput, checkDates, displayError, displaySuccess, displaySpinner, removeSpinner, toggleDisplay, serviceWorker }
+export { checkInput, checkDates, displayError, displaySuccess, displaySpinner, removeSpinner, toastifyMessage, toggleDisplay, serviceWorker }

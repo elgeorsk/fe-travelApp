@@ -1,6 +1,6 @@
 import '../styles/media.scss';
 import travelLogo from '../img/logo.png';
-import {displaySpinner, removeSpinner, serviceWorker} from "./app";
+import {displaySpinner, removeSpinner, toastifyMessage, serviceWorker} from "./app";
 
 let myLogo = document.getElementById('travelLogo'); // get logo element from the page
 myLogo.src = travelLogo; // set logo image
@@ -13,12 +13,11 @@ if(myPlansJSON.length === 0){
     rowsElement.innerHTML = '<div class="row">\n' +
         '<p>No plans available.&nbsp;<a href="index.html">Let\'s create one!</a></p></div>';
 } else {
-    displaySpinner();
     addPlansUI();
-    removeSpinner();
 }
 
 function addPlansUI() {
+    displaySpinner();
     let row = '';
     myPlansJSON.forEach(plan =>
         fetch('/getWeatherbitData?' + plan.map)
@@ -41,7 +40,14 @@ function addPlansUI() {
                     '          <input type="submit" value="Remove" onclick="return Client.deleteMe(' + plan.index + ')"/></div></div>';
                 rowsElement.innerHTML = row;
                 addBackgroundImage();
-            }));
+                removeSpinner();
+            }).catch(error => {
+            removeSpinner();
+            rowsElement.innerHTML = '<div class="row" style="display: grid"><p>Server is down, please try later!</p></div>';
+            toastifyMessage('Server is down, please try later!');
+            console.error(error);
+        })
+    );
 }
 
 // set image to div
