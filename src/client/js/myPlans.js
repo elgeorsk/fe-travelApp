@@ -20,29 +20,28 @@ if(myPlansJSON.length === 0){
 
 function addPlansUI() {
     let row = '';
-    for (let i = 0; i < myPlansJSON.length; i++) {
-        fetch('/getWeatherbitData?' + myPlansJSON[i].map)
+    myPlansJSON.forEach(plan =>
+        fetch('/getWeatherbitData?' + plan.map)
             .then(response => response.json())
             .then(data => {
                 row += '<div class="row">\n' +
                     '        <div class="planBox">\n' +
                     '          <div>\n' +
-                    '            <h1>' + myPlansJSON[i].city + '</h1>\n' +
+                    '            <h1>' + plan.city + '</h1>\n' +
                     '          </div>\n' +
                     '          <div class="right">\n' +
-                    '             <p class="toRight">From : ' + myPlansJSON[i].from + '<br/>To : ' + myPlansJSON[i].to +
-                    '<br/>' + myPlansJSON[i].duration + ' day(s)</p></div>\n' +
+                    '             <p class="toRight">From : ' + plan.from + '<br/>To : ' + plan.to +
+                    '<br/>' + plan.duration + ' day(s)</p></div>\n' +
                     '          <div class="left"><img src="https://www.weatherbit.io/static/img/icons/'+data[0].weather.icon+'.png"/>' +
                                '<p>'+ data[0].weather.description +'<br/>'+ parseInt(data[0].temp) +
                                   '<span> '+ String.fromCodePoint(0x2103) + '</span></p></div>' +
                               '<div class="left">\n' +
                     '           <p><span><i class="fas fa-sun"></i></span> '+ data[0].sunrise +'</p>\n' +
                     '           <p><span><i class="fas fa-moon"></i></span> '+ data[0].sunset +'</p></div>\n' +
-                    '          <input type="submit" value="Remove" onclick="return Client.deleteMe(' + i + ')"/></div></div>';
+                    '          <input type="submit" value="Remove" onclick="return Client.deleteMe(' + plan.index + ')"/></div></div>';
                 rowsElement.innerHTML = row;
                 addBackgroundImage();
-            });
-    }
+            }));
 }
 
 // set image to div

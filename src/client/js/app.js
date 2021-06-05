@@ -81,5 +81,4 @@ function serviceWorker(){
     }
 }
 
-
 export { checkInput, checkDates, displayError, displaySuccess, displaySpinner, removeSpinner, toggleDisplay, serviceWorker }
