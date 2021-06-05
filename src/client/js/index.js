@@ -18,7 +18,7 @@ nextAdventureInput.addEventListener('keypress', function(e) {
     }
 });
 
-submitBtn.addEventListener('click', function (e){
+submitBtn.addEventListener('click', () => {
     let message = checkInput(nextAdventureInput.value);
     if (message !== 'success'){
         displayError(message);

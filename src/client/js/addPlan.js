@@ -33,7 +33,7 @@ datalistCities.innerHTML = str;
 
 // get submit element
 let submitBtn = document.getElementById('submit');
-submitBtn.addEventListener('click', function (e) {
+submitBtn.addEventListener('click', () => {
     let message = checkInput(cityInput.value);
     let dateMessage = checkDates(checkinInput.value ,checkoutInput.value);
     if (message !== 'success') {
